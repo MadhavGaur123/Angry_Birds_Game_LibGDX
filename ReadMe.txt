@@ -1,29 +1,115 @@
-Fully Functioning Angry Birds Game
-
-How To Run -
-
-    Configure Gradel on your IntelliJ
-    Extract the zip file and open the APProject 3 folder on Intellij
-    Open the Launcher File (lwjgl3 -> src -> main -> java -> Lwjgl3Launcher)
-    Configure SDK
-    Click on the run button at the top of IntelliJ please ensure you press the run current file option while running
-
-UML Link - https://miro.com/welcomeonboard/VU81YUhCZmlkMVE1aUUzZWpVTWJiTU9VTGlBM25OUmFDWVh4SUJMdm52dDZKdTdBbEZoNFBKZ3FDRUxFZElFQ3wzNDU4NzY0NTYyNTcyNTkwMzg2fDI=?share_link_id=672945920038
-
-USE CASE Link - https://lucid.app/lucidchart/26c2325b-0426-43fe-a51d-82ab30227622/edit?viewport_loc=180%2C2864%2C4312%2C1581%2C.Q4MUjXso07N&invitationId=inv_7baea1e0-7adc-44b4-857d-9340e42c9d8b
-
-GitHub Link - https://github.com/MadhavGaur123/2023303_2023393_APPROJECT Code Explanation - The main game class (Main.java) manages different screens like StartScreen, HomeScreen, PlayScreen, PauseScreen, and Level1, and transitions between them. It also provides a method to navigate to the settings screen.
-
-Each screen serves a different purpose: the StartScreen features a background, start button (leading to HomeScreen), and settings button, and handles input for touch interactions. The HomeScreen is the main menu, which allows the user to access settings, start the game, or return to the previous screen. The next screen is play screen where you can select the level you want to play. The PauseScreen provides an option to pause the game, with a resume button and a subtle background overlay.
-
-In terms of gameplay, Level1 is the first playable level, featuring a game world of dimensions 1920x1080 with destructible and non-destructible blocks, pigs (regular and helmeted), and different bird types (Red, Yellow, Blue). Viewport management ensures proper camera control, while screen scaling is adjusted dynamically for various screen sizes. Game objects like birds and pigs are defined through base classes (Bird.java, Pig.java), with specific types inheriting and adding custom behaviors.
-
-Input handling includes touch detection for buttons and objects, with keyboard input for pausing or exiting the game.The above is handeleld by input module and use of vectors. Resources such as textures and sprites are managed efficiently with proper disposal, and screens transition smoothly with cleanup mechanisms. Dynamic sprite scaling and positioning ensure consistency across different devices, and all assets (backgrounds, birds, pigs) are scaled based on the viewport size to maintain proportional spacing and proper display.
-
-Box2D has been used to simulate real world like physics. Apart from the screen word created by libGDX box2d has an inbuilt physics world. That has been initialised and for every corresponding sprite(that have to be moved in the real angry bids game not like pause sprite start sprite) you create its respective world body. The great thing about box2D is that it will simulate the physics by itself on the bodies in the world. You can assign shapes and different features such as coefficient of restitution and friction. For collisions we have used a thing called game contact listener. It is used to detect collisions and each world can have its own contact listener. This is used to removed block and pigs on collisions and everything.
-
-Finally for the finishing of the game i have implements a game win and game loose logic. If number of bird is zero and number of pigs left is non 0 then game lost screen. If number of birds non zero or zero and number of pigs left is 0 the game won screen. The function which does it will be called in the redner function of the level code.
-
-Also the user wont be able to play level2 unless level1 is passed and same with level3. There is also game serilization and Juint for the necessary functions. There is also special power for birds and trajectory printing.
-
-Basic Code Outline - Start Screen -> Start Button -> Home Screen (Back , Settings , Play) -> Play Screen (Level 1 , Level 2 , Level 3) -> Level Screen (Pause, Restart). Settings will also have pause game , back and how to play option. This is a basic outline of the code. There are more features like special bird powers and tnt Explosions. Serilization and Juint has also been done and the project depth will be more visible during the demo
+🐦 Angry Birds-Inspired Game (APProject 3)
+This is a 2D physics-based Angry Birds-style game developed using Java, LibGDX, and Box2D. The project demonstrates advanced game development concepts such as dynamic screen management, Box2D-based physics simulations, special bird abilities, serialization, and clean UI/UX handling across multiple game states.
+________________________________________
+🚀 How to Run the Project
+1.	Configure Gradle in IntelliJ:
+o	Ensure Gradle is properly set up under File > Project Structure > Gradle.
+2.	Extract the ZIP file and open the APProject 3 folder in IntelliJ.
+3.	Open the Launcher File:
+o	Navigate to: lwjgl3/src/main/java/Lwjgl3Launcher.java
+4.	Configure the Java SDK:
+o	Go to File > Project Structure > SDKs and make sure the SDK is set correctly.
+5.	Run the Game:
+o	Press the green Run button on top of IntelliJ.
+o	Make sure “Run Current File” is selected while launching.
+________________________________________
+📊 UML & Use Case Diagrams
+•	UML Diagram: https://miro.com/app/board/uXjVLcYy270=/
+•	Use Case Diagram: https://lucid.app/lucidchart/26c2325b-0426-43fe-a51d-82ab30227622/edit?invitationId=inv_7baea1e0-7adc-44b4-857d-9340e42c9d8b&page=.Q4MUjXso07N#
+________________________________________
+📂 Project Structure Overview
+🎮 Main Game Engine (Main.java)
+•	Manages screen transitions between:
+o	StartScreen
+o	HomeScreen
+o	PlayScreen
+o	PauseScreen
+o	Level1 (and beyond)
+•	Handles initialization and navigation to settings and other modules.
+________________________________________
+💻 Screens and Their Roles
+1. StartScreen
+•	Displays background, Start and Settings buttons.
+•	Touch input detection is implemented.
+2. HomeScreen
+•	Main menu with navigation to:
+o	Settings
+o	PlayScreen
+o	Back to StartScreen
+3. PlayScreen
+•	Allows the user to select between:
+o	Level 1
+o	Level 2
+o	Level 3
+4. PauseScreen
+•	Displays when the game is paused.
+•	Includes:
+o	Resume button
+o	Semi-transparent background
+________________________________________
+🌽 Gameplay Details
+🌍 Level1 (and others)
+•	Viewport: 1920×1080
+•	Includes:
+o	Birds: Red, Yellow, Blue (each with special powers)
+o	Pigs: Normal and helmeted
+o	Blocks: Destructible and non-destructible
+o	TNT Explosions
+🛆 Physics Engine: Box2D
+•	All interactive objects are represented using Box2D bodies.
+•	Physics properties such as restitution and friction are assigned.
+•	GameContactListener handles collision detection and post-collision events (e.g., removing pigs/blocks).
+________________________________________
+🧬 Game Logic Highlights
+•	Game world is simulated using Box2D physics.
+•	Each sprite has a corresponding physics body.
+•	Touch and keyboard input supported for various actions (pause, exit, special bird powers).
+•	Dynamic scaling based on device screen size ensures consistent UI and gameplay experience.
+•	Asset management ensures all textures/sprites are properly loaded and disposed.
+________________________________________
+🏁 Win/Lose Conditions
+•	Game Win:
+o	All pigs are destroyed before birds run out.
+•	Game Lose:
+o	Birds run out while pigs remain.
+These checks are handled inside the render() method of each level.
+________________________________________
+🔐 Level Locking Mechanism
+•	Players must complete Level 1 to unlock Level 2, and so on.
+•	Prevents direct access to higher levels before earlier ones are cleared.
+________________________________________
+📀 Serialization & Testing
+•	Game state serialization implemented for saving/loading progress.
+•	JUnit tests written for core logic modules to ensure stability.
+________________________________________
+✨ Advanced Features
+•	Bird Special Powers (based on type)
+•	Trajectory prediction (for bird slingshot)
+•	Explosion physics (TNT blocks)
+•	Smooth screen transitions
+•	Proper memory management and disposal
+________________________________________
+🔄 Basic Code Flow Outline
+Start Screen
+   └── Start Button
+       └── Home Screen
+           ├── Back
+           ├── Settings
+           └── Play
+               └── Level Screen
+                   ├── Level 1
+                   ├── Level 2 (locked until Level 1 passed)
+                   └── Level 3 (locked until Level 2 passed)
+                       ├── Pause
+                       └── Restart
+Settings Menu also includes:
+•	Pause game
+•	Back
+•	How to Play
+________________________________________
+📦 GitHub Repository
+View the complete source code here:
+🔗 GitHub - 2023303_2023393_APPROJECT
+________________________________________
+📣 Final Notes
+This project reflects an in-depth implementation of a full-fledged physics-based 2D game using LibGDX and Box2D. It highlights good coding practices, modular screen design, effective input handling, collision management, dynamic rendering, and enhanced player experience with sound logic and serialization. The game depth and features will be best appreciated in the live demo.
