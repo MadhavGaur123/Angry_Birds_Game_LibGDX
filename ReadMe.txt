@@ -109,7 +109,7 @@ Settings Menu also includes:
 ________________________________________
 📦 GitHub Repository
 View the complete source code here:
-🔗 GitHub - 2023303_2023393_APPROJECT
+🔗 GitHub - https://github.com/MadhavGaur123/Angry_Birds_Game_LibGDX
 ________________________________________
 📣 Final Notes
 This project reflects an in-depth implementation of a full-fledged physics-based 2D game using LibGDX and Box2D. It highlights good coding practices, modular screen design, effective input handling, collision management, dynamic rendering, and enhanced player experience with sound logic and serialization. The game depth and features will be best appreciated in the live demo.
