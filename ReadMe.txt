@@ -1,6 +1,4 @@
-2023303_2023393_APPROJECT
-
-AP PROJECT 3 - FULLY FUNCTIONING ANGR BIRDS Members - Madhav Gaur , Pratham Nasir
+Fully Functioning Angry Birds Game
 
 How To Run -
 
